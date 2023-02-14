@@ -70,7 +70,21 @@ button {
     width: 500px;
     height: 500px;
 
+    padding: 16px;
+
     display: flex;
+    flex-flow: wrap;
+
+}
+
+.pixel {
+
+    background-color: white;
+    border: 1px solid blue;
+    display: flex;
+    min-height: 5px;
+    min-width: 5px;
+    flex-grow: 1;
 }
 
 .footer {

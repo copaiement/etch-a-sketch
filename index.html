@@ -20,8 +20,13 @@
             <div class="options-panel">
                 <div>Options:</div>
                 <div class="options">Board:</div>
-                <button id="btn-reset" onclick="reset()">Reset</button>
+                <button id="btn-erase" onclick="erase()">Erase All</button>
                 <button id="btn-resize" onclick="resize()">Resize</button>
+                <form class="options" id="resize">
+                    <label>Enter Size:</label>
+                    <input id="value" type="number"><br>
+                    <div id="msg"></div>
+                </form>
                 <div class="options">Fill Type:</div>
                 <button id="btn-color">Color Picker</button>
                 <button id="btn-random">Random Color</button>
