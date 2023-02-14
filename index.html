@@ -1,0 +1,42 @@
+<!-- Etch a sketch webpage -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixel Art Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="etchasketch.js" defer></script>
+</head>
+<body>
+    <div class="main-container">
+        <div class="header">
+            <div class="left-text">HEADER LEFT TEXT</div>
+            <div class="right-text">HEADER RIGHT TEXT</div>
+        </div>
+
+        <div class="game-container">
+            <div class="options-panel">
+                <div>Options:</div>
+                <div class="options">Board:</div>
+                <button id="btn-reset" onclick="reset()">Reset</button>
+                <button id="btn-resize" onclick="resize()">Resize</button>
+                <div class="options">Fill Type:</div>
+                <button id="btn-color">Color Picker</button>
+                <button id="btn-random">Random Color</button>
+                <button id="btn-shade">Shader</button>
+                <div class="options">Pen Style:</div>
+                <button id="btn-drag">Drag</button>
+                <button id="btn-click">Click</button>
+            </div>
+            <div class="artboard">
+
+            </div>
+        </div>
+
+        <div class="footer">Design by C Paiement. Made for The Odin Project, 2023.</div>
+
+    </div>
+</body>
+</html>
