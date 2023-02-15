@@ -3,8 +3,7 @@
 //setup default vars
 let fillColor;
 let colorStyle;
-let penStyle;
-
+let penStyle = "click";
 
 //set up initial board
 function initialize() {
@@ -14,7 +13,8 @@ function initialize() {
     }
     fillColor = "black";
     colorStyle = "black";
-    penStyle = "mouseover";
+    penStyle = "click";
+    addListeners(penStyle);
 }
 
 //add pixel to board
@@ -26,6 +26,31 @@ function addPixel() {
     pixel.style.backgroundColor = "white";
     //add pixel into artboard
     artboard.appendChild(pixel);
+}
+
+//add listeners to all pixels
+function addListeners() {
+    const pixels = document.querySelectorAll(".pixel");
+    //look for mouse interaction to change color
+    pixels.forEach(pixel => {
+        pixel.addEventListener(`${penStyle}`, () => {
+            //fillColor = randomRgb();
+            console.log(fillColor);
+            console.log(penStyle);
+            
+            //change color of pixel
+            pixel.style.backgroundColor = `${fillColor}`;
+        });
+    });
+}
+
+function drawTest(pixel) {
+    //fillColor = randomRgb();
+    console.log(fillColor);
+    console.log(penStyle);
+    
+    //change color of pixel
+    pixel.style.backgroundColor = `${fillColor}`;
 }
 
 // ADD REJECTION FOR DECIMALS
@@ -59,6 +84,9 @@ function resize() {
     //set .artboard grid column qty for resizeNum
     const artboard = document.querySelector(".artboard");
     artboard.style.gridTemplateColumns = `repeat(${resizeNum}, minmax(0, 1fr))`;
+
+    //add event listeners for new pixels
+    addListeners();
 }
 
 //clear color from board
@@ -92,22 +120,26 @@ function randomRgb() {
 }
 
 initialize();
+// draw();
+
+/*
+//old drawing code:
+function addListeners() {
+    const pixels = document.querySelectorAll(".pixel");
+    //look for mouse interaction to change color
+    pixels.forEach(pixel => {
+
+        pixel.addEventListener(`${penStyle}`, () => {
+            
+            fillColor = randomRgb();
+            console.log(fillColor);
+            console.log(penStyle);
+            
+            //change color of pixel
+            pixel.style.backgroundColor = `${fillColor}`;
 
 
-const pixels = document.querySelectorAll(".pixel");
-//look for mouse interaction to change color
-pixels.forEach(pixel => {
-
-    pixel.addEventListener(`${penStyle}`, () => {
-        
-        fillColor = randomRgb();
-        console.log(fillColor);
-        console.log(penStyle);
-        
-        //change color of pixel
-        pixel.style.backgroundColor = `${fillColor}`;
-
-
+        });
     });
-});
-
+}
+*/
