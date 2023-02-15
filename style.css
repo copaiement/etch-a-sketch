@@ -57,6 +57,10 @@ body {
     font-size: 14px;
 }
 
+input {
+    width: 50px;
+}
+
 button {
     margin: 0px;
     padding: 8px;
@@ -71,20 +75,17 @@ button {
     height: 500px;
 
     padding: 16px;
-
-    display: flex;
-    flex-flow: wrap;
-
+    display: grid;
+    grid-auto-columns: minmax(0, 1fr);
+    grid-auto-flow: row;
 }
 
 .pixel {
 
     background-color: white;
     border: 1px solid blue;
-    display: flex;
-    min-height: 5px;
-    min-width: 5px;
-    flex-grow: 1;
+
+   
 }
 
 .footer {

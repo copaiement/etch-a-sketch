@@ -15,7 +15,7 @@ function addPixel() {
     artboard.appendChild(pixel);
 
 }
-
+// ADD REJECTION FOR DECIMALS
 function resize() {
     //get new size
     let getValue = document.getElementById("value");
@@ -41,12 +41,18 @@ function resize() {
     for (let i = 1; i <= (resizeNum * resizeNum); i ++) {
         addPixel();
     }
+
+    //set .artboard grid column qty for resizeNum
+    const artboard = document.querySelector(".artboard");
+    artboard.style.gridTemplateColumns = `repeat(${resizeNum}, minmax(0, 1fr))`;
 }
 
 function erase() {
+    
+    //was testing with this. it is probably broken
     const artboard = document.querySelector(".artboard");
-    const pixels = document.querySelectorAll(".pixel");
-    pixels.style.background = 'white';
+    //const pixels = document.querySelectorAll(".pixel");
+    artboard.style.cssText = "grid-template-columns: repeat(12, minmax(0, 1fr))"
 }
 
 initialize();
