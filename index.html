@@ -30,11 +30,11 @@
                 </form>
                 <div class="options">Fill Type:</div>
                 <button id="btn-color">Color Picker</button>
-                <button id="btn-random">Random Color</button>
-                <button id="btn-shade">Shader</button>
+                <button id="btn-random" onclick="setColorStyle('random')">Random Color</button>
+                <button id="btn-shade" onclick="setColorStyle('shade')">Shader</button>
                 <div class="options">Pen Style:</div>
-                <button id="btn-drag">Drag</button>
-                <button id="btn-click">Click</button>
+                <button id="btn-mouseover" onclick="setPenStyle('mouseover')">Drag</button>
+                <button id="btn-click" onclick="setPenStyle('click')">Click</button>
             </div>
             <div class="artboard" style="grid-template-columns: repeat(16, minmax(0, 1fr))">
 
