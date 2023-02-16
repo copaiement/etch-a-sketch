@@ -3,18 +3,19 @@
 //setup default vars
 let fillColor = "black";
 let colorStyle = "black";
-let penStyle = "mouseover";
+let penStyle;
 
 //set up initial board
 function initialize() {
     const initialPixel = 16;
+    penStyle = "mouseover";
     for (let i = 1; i <= (initialPixel * initialPixel); i ++) {
         addPixel();
     }
-    addListeners();
+    addListeners(penStyle);
 }
 
-//add pixel to board
+//add one pixel to board
 function addPixel() {
     const artboard = document.querySelector(".artboard");
     const pixel = document.createElement("div");
@@ -26,7 +27,7 @@ function addPixel() {
 }
 
 //add listeners to all pixels
-function addListeners() {
+function addListeners(penStyle) {
     const pixels = document.querySelectorAll(".pixel");
     pixels.forEach(pixel => {
         pixel.addEventListener(`${penStyle}`, draw);
@@ -34,23 +35,24 @@ function addListeners() {
 }
 
 //remove listeners from all pixels
-function removeListeners() {
+function removeListeners(penStyle) {
     const pixels = document.querySelectorAll(".pixel");
     pixels.forEach(pixel => {
         pixel.removeEventListener(`${penStyle}`, draw);
     })
 }
 
-function drawTest() {
-
+function draw(e) {
+    e.target.style.backgroundColor = "black";
 }
 
-// ADD REJECTION FOR DECIMALS
 //resize board
 function resize() {
     //get new size
     let getValue = document.getElementById("value");
     let resizeNum = 0;
+    //round decimals down to integers
+    getValue.value = Math.floor(getValue.value);
     //reject bad inputs
     if (getValue.value <= 0 || getValue.value > 100) {
         const msg = document.getElementById("msg");
@@ -78,7 +80,7 @@ function resize() {
     artboard.style.gridTemplateColumns = `repeat(${resizeNum}, minmax(0, 1fr))`;
 
     //add event listeners for new pixels
-    addListeners();
+    addListeners(penStyle);
 }
 
 //clear color from board
@@ -90,16 +92,19 @@ function eraseAll() {
 }
 
 //decide which fill style to use
-function setColorStyle(colorStyle) {
+function setColorStyle(newColor) {
     //Options: pick, random, shade
-    return colorStyle;
+    return newColor;
 }
 
 //set pen style (pull value from HTML: btn)
-function setPenStyle(penStyle) {
+function setPenStyle(newStyle) {
     //options: click, mouseover
+    removeListeners(penStyle);
+    penStyle = newStyle;
     console.log(penStyle);
-    return penStyle; 
+    addListeners(penStyle);
+    
 }
 
 function randomRgb() {
