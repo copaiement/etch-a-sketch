@@ -23,13 +23,16 @@
                 <div class="options">Board:</div>
                 <button id="btn-erase" onclick="eraseAll()">Erase All</button>
                 <button id="btn-resize" onclick="resize()">Resize</button>
-                <form class="options" id="resize">
+                <form id="resize">
                     <label>Enter Size:</label>
-                    <input id="value" type="number"><br>
+                    <input id="size-value" type="number"><br>
                     <div id="msg"></div>
                 </form>
                 <div class="options">Fill Type:</div>
-                <button id="btn-color">Color Picker</button>
+                <form id="select-color-container">
+                    <label>Select Color:</label>
+                    <input id="select-color" type="color" value="#ff0000">
+                </form>
                 <button id="btn-random" onclick="setColorStyle('random')">Random Color</button>
                 <button id="btn-shade" onclick="setColorStyle('shade')">Shader</button>
                 <div class="options">Pen Style:</div>
