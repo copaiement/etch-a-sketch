@@ -61,43 +61,6 @@ function draw(e) {
     }
 }
 
-//resize board
-function resize() {
-    //get new size
-    let getValue = document.getElementById("size-value");
-    let resizeNum = 0;
-    //round decimals down to integers
-    getValue.value = Math.floor(getValue.value);
-    //reject bad inputs
-    if (getValue.value <= 0 || getValue.value > 100) {
-        const msg = document.getElementById("msg");
-        msg.textContent = "Enter a number from 1 to 100.";
-        getValue.value = '';
-    } else {
-        //clear board
-        const artboard = document.querySelector(".artboard");
-        const pixels = document.querySelectorAll(".pixel");
-        pixels.forEach(pixel => {
-            artboard.removeChild(pixel);
-        });
-        //clear error message
-        msg.textContent = "";
-        resizeNum = getValue.value;
-        getValue.value = '';
-    }
-    //add elements for each resize num
-    for (let i = 1; i <= (resizeNum * resizeNum); i ++) {
-        addPixel();
-    }
-
-    //set .artboard grid column qty for resizeNum
-    const artboard = document.querySelector(".artboard");
-    artboard.style.gridTemplateColumns = `repeat(${resizeNum}, minmax(0, 1fr))`;
-
-    //add event listeners for new pixels
-    addListeners(penStyle);
-}
-
 //clear color from board
 function eraseAll() {
     const pixels = document.querySelectorAll(".pixel");
@@ -151,6 +114,35 @@ function shade(currentColor) {
 function setColor(e) {
     fillColor = e.target.value;
     colorStyle = "solid";
+}
+
+let slider = document.getElementById("sliderRange");
+let output = document.getElementById("slider-label");
+output.innerHTML = `${slider.value} x ${slider.value}`; // Display the default slider value
+
+// Update the current slider value when dragged and send to resize
+slider.oninput = function() {
+    output.innerHTML = `${this.value} x ${this.value}`;
+
+    //clear board
+    const artboard = document.querySelector(".artboard");
+    const pixels = document.querySelectorAll(".pixel");
+    pixels.forEach(pixel => {
+        artboard.removeChild(pixel);
+    });
+
+
+    //add elements for each resize num
+    for (let i = 1; i <= (this.value * this.value); i ++) {
+        addPixel();
+    }
+
+    //set .artboard grid column qty for resizeNum
+    artboard.style.gridTemplateColumns = `repeat(${this.value}, minmax(0, 1fr))`;
+
+    //add event listeners for new pixels
+    addListeners(penStyle);
+
 }
 
 //
