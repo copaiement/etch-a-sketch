@@ -19,15 +19,15 @@
                 <div class="options">Board:</div>
                 <button id="btn-erase" onclick="eraseAll()">Erase All</button>
                 <div class="options">Fill Type:</div>
-                <form id="select-color-container">
-                    <label>Select Color:</label>
+                <form class="select-color-container">
+                    <div>Select Color</div>
                     <input id="select-color" type="color" value="#ff0000">
                 </form>
                 <button id="btn-random" onclick="setColorStyle('random')">Random Color</button>
                 <button id="btn-shade" onclick="setColorStyle('shade')">Shader</button>
                 <div class="options">Pen Style:</div>
-                <button id="btn-mouseover" onclick="setPenStyle('mouseover')">Drag</button>
-                <button id="btn-click" onclick="setPenStyle('click')">Click</button>
+                <button class="btn-grp2" id="btn-mouseover" onclick="setPenStyle('mouseover')">Follow</button>
+                <button class="btn-grp2" id="btn-click" onclick="setPenStyle('click')">Click</button>
             </div>
 
             <div class="artboard-container">

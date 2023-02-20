@@ -11,16 +11,22 @@ body {
 
 }
 
-form{
-    font-weight: 400;
+button {
+    border: none;
+    margin: 0px;
+    padding: 16px;
+    background-color: #434447;
+    color: rgb(185, 185, 185);
+    font-family: 'Martian Mono', monospace;
     font-size: 14px;
-    color: black;
 }
 
-button {
-    margin: 0px;
-    padding: 8px;
+button:hover {
+    background-color: #20283b;
+    scale: 1.05;
 }
+
+
 
 .main-container {
     box-sizing: border-box;
@@ -51,12 +57,11 @@ button {
 }
 
 .options-panel {
-    background-color: #9099b6;
-    color: #1a2138;
+    background-color: #6b7288;
+    color: #b4c0e6;
     font-size: 18px;
     padding: 16px;
     margin: 16px;
-    box-shadow: 0px 0px 16px black;
     border-radius: 8px;
 
     display: flex;
@@ -68,14 +73,29 @@ button {
 
 .options {
     font-size: 14px;
-    color: purple;
+    color: rgb(178, 196, 223);
     font-weight: bold;
     margin: 8px;
 }
 
-.color-input {
-    display: inline-block;
+.select-color-container {
+    background-color: #434447;
+    color: rgb(185, 185, 185);
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 14px;
 
+}
+
+.select-color-container:hover {
+    background-color: #20283b;
+    scale: 1.05;
+}
+
+.select-color-container:active {
+    background-color: red;
 }
 
 .artboard-container {
@@ -88,7 +108,6 @@ button {
 
 .artboard {
     background-color: #b65050;
-    box-shadow: 0px 0px 16px black;
     border-radius: 8px;
 
     width: 600px;
@@ -160,5 +179,7 @@ button {
     border-radius: 4px;
     border: none;
     outline: none;
+
 }
+
 

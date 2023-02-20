@@ -7,10 +7,6 @@ let penStyle;
 
 initialize();
 
-//set color picker event listener
-const colorPicker = document.getElementById("select-color");
-colorPicker.addEventListener("change", setColor);
-
 //set up initial board
 function initialize() {
     const initialPixel = 16;
